@@ -1,0 +1,8 @@
+<experiment attribute="values" type="vector" min="0.96 0.04 0.04 0.96 "
+	    max="0.96 0.04 0.04 0.96 " steps="1" interp="linear">
+  <mdp>
+    <prediction node="Occ">
+      <prediction_cpd horizon="all"/>
+    </prediction>
+  </mdp>
+</experiment>

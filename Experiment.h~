@@ -1,0 +1,24 @@
+#ifndef EXPERIMENT_H
+#define EXPERIMENT_H
+
+#include <string>
+#include "XML.h"
+
+class Experiment {
+ public:
+  Experiment(const char *filename);
+  ~Experiment() {};
+
+  int numSteps() const;
+  bool populateNode(XMLNode *root, int trial_idx) const;
+ private:
+
+  std::string getIntegerString(int trial_idx) const;
+  std::string getDoubleString(int trial_idx) const;
+  std::string getVectorString(int trial_idx) const;
+  std::string getFileString(int trial_idx) const;
+    
+  XMLNode m_experiment;
+};
+
+#endif  

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mdp horizon="10">
+	<action name="A" n="3"/>
+	<state name="X" n="5"/>
+	<state name="Z" n="2"/>
+	<reward file="R.dat" scale="1.0">
+		<parent name="A"/>
+		<parent name="X"/>
+		<parent name="Z"/>
+	</reward>
+	<cpd node="X_n" file="CPT_S.dat">
+		<parent name="A"/>
+		<parent name="X"/>
+		<parent name="Z"/>
+	</cpd>
+	<cpd node="Z_n" file="CPT_Z.dat">
+		<parent name="Z"/>
+	</cpd>
+	<cpd node="X" values="0.2 0.2 0.2 0.2 0.2 "/>
+	<cpd node="Z" values="0.5 0.5 "/>
+	<prediction node="Z" horizon="5">
+		<prediction_cpd horizon="all" values="1 0 0 1 "/>
+	</prediction>
+</mdp>

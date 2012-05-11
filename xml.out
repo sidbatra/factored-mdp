@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mdp horizon="20" vi_horizon="5" verbose="true">
+	<action name="HVAC" n="33"/>
+	<state name="Temp_in" n="20"/>
+	<state name="Temp_out" n="10"/>
+	<state name="Time" n="4"/>
+	<state name="Occ" n="2"/>
+	<reward file="R_en.txt" scale="-5e-05">
+		<parent name="HVAC"/>
+		<parent name="Temp_in"/>
+		<parent name="Temp_out"/>
+		<parent name="Time"/>
+	</reward>
+	<reward file="R_comf.txt" scale="-1.0">
+		<parent name="Temp_in"/>
+		<parent name="Temp_out"/>
+		<parent name="Occ"/>
+	</reward>
+	<cpd node="Temp_in_n" file="CPT_temp_in.txt">
+		<parent name="HVAC"/>
+		<parent name="Temp_in"/>
+		<parent name="Temp_out"/>
+		<parent name="Time"/>
+	</cpd>
+	<cpd node="Temp_out_n" file="CPT_temp_out.txt">
+		<parent name="Temp_out"/>
+		<parent name="Time"/>
+	</cpd>
+	<cpd node="Time_n" file="CPT_time.txt">
+		<parent name="Time"/>
+	</cpd>
+	<cpd node="Occ_n" file="CPT_occ.txt">
+		<parent name="Time"/>
+		<parent name="Occ"/>
+	</cpd>
+	<cpd node="Temp_in" file="CPT_temp_in_0.txt"/>
+	<cpd node="Temp_out" file="CPT_temp_out_0.txt"/>
+	<cpd node="Time" values="1.0 1.0 1.0 1.0 "/>
+	<cpd node="Occ" file="CPT_occ_0.txt"/>
+	<!--
+  <prediction node="Occ" horizon="1">
+    <prediction_cpd horizon="all" values="1.0 0.0 0.0 1.0 "/>
+  </prediction>
+  -->
+</mdp>

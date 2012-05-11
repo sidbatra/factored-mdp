@@ -1,0 +1,5 @@
+Experiment.o: Experiment.cpp Experiment.h XML.h
+FactoredMDP.o: FactoredMDP.cpp FactoredMDP.h XML.h Experiment.h
+main.o: main.cpp FactoredMDP.h XML.h Experiment.h
+test.o: test.cpp
+XML.o: XML.cpp XML.h

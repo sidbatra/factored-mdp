@@ -1,0 +1,6 @@
+<experiment attribute="scale" type="double" min="-6.12220032e-06" max="-6.12220032e-06"
+	    steps="1" interp="exponential">
+  <mdp>
+    <reward file="R_en.txt">
+  </mdp>
+</experiment>
